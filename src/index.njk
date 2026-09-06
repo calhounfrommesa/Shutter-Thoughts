@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+{% for entry in collections.entries %}
+{%- set n = entry.data.photos | length if entry.data.photos else 0 %}
+<article class="entry" id="{{ entry.date | day }}">
+  <div class="head">
+    <a class="stamp" href="#{{ entry.date | day }}">{{ entry.date | day }}</a>{% if n %} :: {{ n }} photo{% if n > 1 %}s{% endif %}{% if entry.data.summary %} &mdash; {{ entry.data.summary }}{% endif %}{% elif entry.data.summary %} :: {{ entry.data.summary }}{% endif %}
+  </div>
+  {% if n %}{% gallery entry.data.photos %}{% endif %}
+  {% if entry.templateContent %}<div class="body">{{ entry.templateContent | safe }}</div>{% endif %}
+</article>
+{% endfor %}
