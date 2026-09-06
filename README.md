@@ -1,4 +1,4 @@
-# Shutter-Thoughts
+# Shutter Thoughts
 
 Welcome to Shutter Thoughts, a personal blog where I share my journey. I
 believe that photography is not about having the best camera or equipment. It is
