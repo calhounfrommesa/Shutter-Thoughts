@@ -21,7 +21,8 @@ async function gallery(photos) {
   const parts = [`<div class="shots n${cols}">`];
 
   for (let i = 0; i < photos.length; i++) {
-    const p = photos[i];
+    // Normalize Windows-style backslashes so paths resolve on Linux CI.
+    const p = { ...photos[i], src: String(photos[i].src).replace(/\\/g, "/") };
     const meta = await Image(`src/photos/${p.src}`, {
       widths: WIDTHS,
       formats: ["jpeg"],
